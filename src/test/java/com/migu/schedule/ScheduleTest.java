@@ -118,7 +118,6 @@ public class ScheduleTest
         actual = schedule.addTask(1, 10);
         actual = schedule.deleteTask(1);
         Assert.assertEquals(ReturnCodeKeys.E011, actual);
-        System.out.println(1);
     }
     
     @Test
