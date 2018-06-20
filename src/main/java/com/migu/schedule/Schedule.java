@@ -1,7 +1,6 @@
 package com.migu.schedule;
 
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -91,10 +90,21 @@ public class Schedule {
     	if (threshold <= 0) {
 			return ReturnCodeKeys.E002;
 		}
-    	
-        return ReturnCodeKeys.E000;
+    	List<Task> waitingList = tasks.get(-1);
+    	for (Task task : waitingList) {
+    		
+		}
+        return ReturnCodeKeys.E013;
     }
-
+    
+	private int getNodeConsumption(Integer nodeId) {
+		int nodeConsumption = 0;
+		List<Task> list = tasks.get(nodeId);
+		for (Task task : list) {
+			nodeConsumption += task.getConsumption();
+		}
+		return nodeConsumption;
+	}
 
 	public int queryTaskStatus(List<TaskInfo> tasks) {
         if (tasks == null) {
